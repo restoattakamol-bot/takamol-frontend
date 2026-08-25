@@ -69,15 +69,15 @@ header h1 {
   max-width: 500px;
   padding: 1rem 1.5rem;
   font-size: 1rem;
-  border: 1px solid var(--border-color);
+  border: 1.1px solid #030986;
   border-radius: 8px;
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .search-input:focus {
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 3px rgba(63, 111, 93, 0.2);
+  border-color: #030986;
+  box-shadow: 0 0 0 3px rgba(3, 9, 134, 0.2);
 }
 
 .no-results {
