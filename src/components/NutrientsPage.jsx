@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
+import Loader from './Loader';
 
 const NutrientsPage = () => {
   const { id } = useParams();
@@ -36,7 +37,7 @@ const NutrientsPage = () => {
     }
   };
 
-  if (loading) return <div className="loading">Loading nutrients data...</div>;
+  if (loading) return <Loader />;
   if (error) return <div className="error">{error}</div>;
   if (!item) return <div className="error">Item not found.</div>;
 

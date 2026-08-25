@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Loader from './Loader';
 
 const MenuPage = () => {
   const [menuItems, setMenuItems] = useState([]);
@@ -38,7 +39,7 @@ const MenuPage = () => {
     return acc;
   }, {});
 
-  if (loading) return <div className="loading">Loading menu...</div>;
+  if (loading) return <Loader />;
   if (error) return <div className="error">{error}</div>;
 
   return (
