@@ -189,3 +189,40 @@ header p {
 .error {
   color: #e74c3c;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  header {
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .category-title {
+    font-size: 1.4rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .nutrients-container {
+    padding: 1.5rem 1rem;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .items-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .item-card {
+    padding: 1.2rem;
+  }
+}
