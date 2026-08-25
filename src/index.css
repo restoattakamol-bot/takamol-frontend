@@ -108,14 +108,14 @@ header p {
 
 /* Card Style */
 .item-card {
-  background-color: var(--primary-color);
-  border: 1px solid var(--primary-color);
+  background-color: #e0f2fe;
+  border: 1px solid #bae6fd;
   border-radius: 8px;
   padding: 1.5rem;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   text-decoration: none;
-  color: #ffffff;
+  color: #0f172a;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -125,8 +125,8 @@ header p {
 
 .item-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
-  border-color: var(--accent-color);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  border-color: #38bdf8;
 }
 
 .item-title {
@@ -137,7 +137,7 @@ header p {
 
 .view-nutrients {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: #334155;
   font-weight: 500;
   align-self: flex-start;
 }
