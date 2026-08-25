@@ -18,7 +18,7 @@
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background-color: var(--bg-color);
-  background-image: url('/bg%20img.png'); /* Using URL encoded space */
+  background-image: url('/ChatGPT%20Image%20Aug%2025%2C%202026%20at%2006_00_34%20PM.png');
   background-repeat: repeat;
   background-size: 400px; /* Adjust size as needed for the pattern */
   color: var(--text-main);
