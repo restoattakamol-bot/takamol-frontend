@@ -7,9 +7,9 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <header>
+        <header className="main-header">
+          <img src="/takamol%20logo%20.png" alt="Takamol Logo" className="logo" />
           <h1>Takamol</h1>
-          <p>Enjoy Your Meal</p>
         </header>
         <Routes>
           <Route path="/" element={<MenuPage />} />
