@@ -90,8 +90,8 @@ header p {
 
 .category-title {
   font-size: 1.8rem;
-  color: var(--primary-color);
-  background-color: #ffffff;
+  color: #4338ca;
+  background-color: #fef08a;
   padding: 0.8rem 1.5rem;
   border-radius: 8px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
