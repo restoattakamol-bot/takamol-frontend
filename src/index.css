@@ -299,3 +299,21 @@ header h1 {
     padding: 1.2rem;
   }
 }
+
+/* RTL Support */
+.rtl-layout {
+  direction: rtl;
+}
+
+.rtl-layout .search-input {
+  text-align: right;
+}
+
+.rtl-layout .language-toggle {
+  right: auto !important;
+  left: 20px !important;
+}
+
+.rtl-layout .view-nutrients {
+  align-self: flex-end;
+}

@@ -36,7 +36,7 @@ const Loader = () => {
       <h3 className="loader-text">{loadingPhrases[phraseIndex]}</h3>
       {showSubtext && (
         <p className="loader-subtext">
-          Waking up our servers... this can take up to 50 seconds the first time. Thanks for waiting!
+          Thanks for waiting!
         </p>
       )}
     </div>

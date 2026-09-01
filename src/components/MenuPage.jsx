@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Loader from './Loader';
 
-const MenuPage = () => {
+const MenuPage = ({ language }) => {
   const [menuItems, setMenuItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
@@ -25,17 +25,19 @@ const MenuPage = () => {
     fetchMenuItems();
   }, []);
 
-  // Filter items based on search term
-  const filteredItems = menuItems.filter(item => 
-    item.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // Filter items based on search term and language
+  const filteredItems = menuItems.filter(item => {
+    const searchTarget = language === 'en' ? item.title : (item.titleAr || '');
+    return searchTarget.toLowerCase().includes(searchTerm.toLowerCase());
+  });
 
-  // Group items by category
+  // Group items by category based on language
   const groupedItems = filteredItems.reduce((acc, item) => {
-    if (!acc[item.category]) {
-      acc[item.category] = [];
+    const categoryTarget = language === 'en' ? item.category : (item.categoryAr || item.category);
+    if (!acc[categoryTarget]) {
+      acc[categoryTarget] = [];
     }
-    acc[item.category].push(item);
+    acc[categoryTarget].push(item);
     return acc;
   }, {});
 
@@ -47,7 +49,7 @@ const MenuPage = () => {
       <div className="search-container">
         <input 
           type="text" 
-          placeholder="Search menu items..." 
+          placeholder={language === 'en' ? "Search menu items..." : "ابحث عن الوجبات..."}
           className="search-input"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
@@ -55,7 +57,9 @@ const MenuPage = () => {
       </div>
       
       {Object.entries(groupedItems).length === 0 ? (
-        <div className="no-results">No items found matching your search.</div>
+        <div className="no-results">
+          {language === 'en' ? "No items found matching your search." : "لم يتم العثور على وجبات تطابق بحثك."}
+        </div>
       ) : (
         Object.entries(groupedItems).map(([category, items]) => (
           <section key={category} className="category-section">
@@ -64,10 +68,12 @@ const MenuPage = () => {
               {items.map(item => (
                 <Link to={`/item/${item._id}`} key={item._id} className="item-card">
                   <div>
-                    <h3 className="item-title">{item.title}</h3>
+                    <h3 className="item-title">
+                      {language === 'en' ? item.title : (item.titleAr || item.title)}
+                    </h3>
                   </div>
                   <div className="view-nutrients">
-                    View Nutrients &rarr;
+                    {language === 'en' ? 'View Nutrients \u2192' : '\u2190 عرض الحقائق الغذائية'}
                   </div>
                 </Link>
               ))}
