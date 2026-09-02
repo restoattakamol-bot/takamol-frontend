@@ -35,11 +35,11 @@ function App() {
           >
             {language === 'en' ? 'عربي' : 'English'}
           </button>
-          <img src="/takamol%20logo%20.png" alt="Takamol Logo" className="logo" />
+          <img src="/takamol%20logo.png" alt="Takamol Logo" className="logo" />
           <img 
             src="/combained%20logos.png" 
             alt="Combined Logos" 
-            style={{ width: '100%', maxWidth: '700px', marginTop: '-160px', marginBottom: '-160px', position: 'relative', zIndex: 1, pointerEvents: 'none' }} 
+            className="combined-logos"
           />
         </header>
         <Routes>

@@ -56,8 +56,8 @@ const MenuPage = ({ language }) => {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
-        <div style={{ display: 'flex', gap: '10px' }}>
-          <Link to="/allergies" style={{
+        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <Link to="/allergies" className="action-button" style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -72,11 +72,11 @@ const MenuPage = ({ language }) => {
           }}>
             {language === 'en' ? 'Allergies' : 'الحساسية'}
           </Link>
-          <Link to="/heat-food" style={{
+          <Link to="/heat-food" className="action-button" style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: '#1a5043',
+            backgroundColor: '#030986',
             color: 'white',
             padding: '0 20px',
             borderRadius: '8px',

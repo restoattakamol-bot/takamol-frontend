@@ -10,6 +10,8 @@ const NutrientsPage = ({ language }) => {
   const [error, setError] = useState(null);
   const [imageError, setImageError] = useState(false);
   const [imageExt, setImageExt] = useState('.png');
+  const [allergyImageError, setAllergyImageError] = useState(false);
+  const [allergyImageExt, setAllergyImageExt] = useState('.png');
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -27,10 +29,12 @@ const NutrientsPage = ({ language }) => {
     fetchItem();
   }, [id, language]);
 
-  // Reset image extension and error when item or language changes
+  // Reset image extensions and errors when item or language changes
   useEffect(() => {
     setImageExt('.png');
     setImageError(false);
+    setAllergyImageExt('.png');
+    setAllergyImageError(false);
   }, [item, language]);
 
   const handleImageError = () => {
@@ -40,6 +44,16 @@ const NutrientsPage = ({ language }) => {
       setImageExt('.jpg');
     } else {
       setImageError(true);
+    }
+  };
+
+  const handleAllergyImageError = () => {
+    if (allergyImageExt === '.png') {
+      setAllergyImageExt('.jpeg');
+    } else if (allergyImageExt === '.jpeg') {
+      setAllergyImageExt('.jpg');
+    } else {
+      setAllergyImageError(true);
     }
   };
 
@@ -55,10 +69,22 @@ const NutrientsPage = ({ language }) => {
       <Link to="/" className="back-link">
         {language === 'en' ? '\u2190 Back to Menu' : 'العودة للقائمة \u2192'}
       </Link>
-      <h2 style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        {displayTitle}
-      </h2>
-      <p className="category-label">
+      
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '1rem' }}>
+        {!allergyImageError && (
+          <img 
+            src={`/${item.title}_allergy${allergyImageExt}`} 
+            alt="Allergy Information"
+            style={{ maxWidth: '150px', height: 'auto', marginBottom: '10px' }}
+            onError={handleAllergyImageError}
+          />
+        )}
+        <h2 style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: 0, textAlign: 'center' }}>
+          {displayTitle}
+        </h2>
+      </div>
+
+      <p className="category-label" style={{ textAlign: 'center', marginTop: '10px' }}>
         {language === 'en' ? `Category: ${displayCategory}` : `التصنيف: ${displayCategory}`}
       </p>
       
