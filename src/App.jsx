@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MenuPage from './components/MenuPage';
 import NutrientsPage from './components/NutrientsPage';
+import AllergiesPage from './components/AllergiesPage';
+import HeatFoodPage from './components/HeatFoodPage';
 
 function App() {
   const [language, setLanguage] = useState('en');
@@ -34,11 +36,17 @@ function App() {
             {language === 'en' ? 'عربي' : 'English'}
           </button>
           <img src="/takamol%20logo%20.png" alt="Takamol Logo" className="logo" />
-          <h1>{language === 'en' ? 'Takamol' : 'تكامل'}</h1>
+          <img 
+            src="/combained%20logos.png" 
+            alt="Combined Logos" 
+            style={{ width: '100%', maxWidth: '700px', marginTop: '-160px', marginBottom: '-160px', position: 'relative', zIndex: 1, pointerEvents: 'none' }} 
+          />
         </header>
         <Routes>
           <Route path="/" element={<MenuPage language={language} />} />
           <Route path="/item/:id" element={<NutrientsPage language={language} />} />
+          <Route path="/allergies" element={<AllergiesPage language={language} />} />
+          <Route path="/heat-food" element={<HeatFoodPage language={language} />} />
         </Routes>
       </div>
     </Router>

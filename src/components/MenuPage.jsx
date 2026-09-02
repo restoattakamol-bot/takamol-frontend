@@ -46,14 +46,48 @@ const MenuPage = ({ language }) => {
 
   return (
     <div className="container">
-      <div className="search-container">
-        <input 
-          type="text" 
-          placeholder={language === 'en' ? "Search menu items..." : "ابحث عن الوجبات..."}
-          className="search-input"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
+      <div className="header-actions" style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginBottom: '20px', flexWrap: 'wrap' }}>
+        <div className="search-container" style={{ margin: '0', flex: '1', minWidth: '250px', maxWidth: '400px' }}>
+          <input 
+            type="text" 
+            placeholder={language === 'en' ? "Search menu items..." : "ابحث عن الوجبات..."}
+            className="search-input"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+        <div style={{ display: 'flex', gap: '10px' }}>
+          <Link to="/allergies" style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: '#030986',
+            color: 'white',
+            padding: '0 20px',
+            borderRadius: '8px',
+            textDecoration: 'none',
+            fontWeight: 'bold',
+            height: '42px',
+            whiteSpace: 'nowrap'
+          }}>
+            {language === 'en' ? 'Allergies' : 'الحساسية'}
+          </Link>
+          <Link to="/heat-food" style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: '#1a5043',
+            color: 'white',
+            padding: '0 20px',
+            borderRadius: '8px',
+            textDecoration: 'none',
+            fontWeight: 'bold',
+            height: '42px',
+            whiteSpace: 'nowrap'
+          }}>
+            {language === 'en' ? 'How To Heat Food' : 'طريقة تسخين الطعام'}
+          </Link>
+        </div>
       </div>
       
       {Object.entries(groupedItems).length === 0 ? (
