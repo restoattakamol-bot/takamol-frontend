@@ -8,8 +8,6 @@ const NutrientsPage = ({ language }) => {
   const [item, setItem] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [imageError, setImageError] = useState(false);
-  const [imageExt, setImageExt] = useState('.png');
   const [allergyImageError, setAllergyImageError] = useState(false);
   const [allergyImageExt, setAllergyImageExt] = useState('.png');
 
@@ -29,23 +27,13 @@ const NutrientsPage = ({ language }) => {
     fetchItem();
   }, [id, language]);
 
-  // Reset image extensions and errors when item or language changes
+  // Reset allergy image extensions and errors when item or language changes
   useEffect(() => {
-    setImageExt('.png');
-    setImageError(false);
     setAllergyImageExt('.png');
     setAllergyImageError(false);
   }, [item, language]);
 
-  const handleImageError = () => {
-    if (imageExt === '.png') {
-      setImageExt('.jpeg');
-    } else if (imageExt === '.jpeg') {
-      setImageExt('.jpg');
-    } else {
-      setImageError(true);
-    }
-  };
+
 
   const handleAllergyImageError = () => {
     if (allergyImageExt === '.png') {
@@ -88,26 +76,7 @@ const NutrientsPage = ({ language }) => {
         {language === 'en' ? `Category: ${displayCategory}` : `التصنيف: ${displayCategory}`}
       </p>
       
-      <div className="nutrients-image-wrapper" style={{ marginTop: '2rem', textAlign: 'center' }}>
-        {!imageError ? (
-          <img 
-            src={`/nutrients/${displayTitle}${imageExt}`} 
-            alt={`Nutritional facts for ${displayTitle}`} 
-            style={{ maxWidth: '350px', width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }}
-            onError={handleImageError}
-          />
-        ) : (
-          <div className="nutrients-placeholder" style={{ padding: '3rem', backgroundColor: '#f8f9fa', border: '2px dashed #ccc', borderRadius: '8px' }}>
-            <h3>{language === 'en' ? 'No Nutrient Image Found' : 'لم يتم العثور على صورة الحقائق الغذائية'}</h3>
-            <p>
-              {language === 'en' 
-                ? <>To show the image here, save it as exactly <strong>{displayTitle}.png</strong>, <strong>.jpeg</strong>, or <strong>.jpg</strong> inside the <strong>frontend/public/nutrients/</strong> folder.</>
-                : <>لإظهار الصورة هنا، احفظها باسم <strong>{displayTitle}.png</strong> أو <strong>.jpeg</strong> أو <strong>.jpg</strong> داخل مجلد <strong>frontend/public/nutrients/</strong>.</>
-              }
-            </p>
-          </div>
-        )}
-      </div>
+
     </div>
   );
 };

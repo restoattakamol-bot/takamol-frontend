@@ -107,7 +107,7 @@ const MenuPage = ({ language }) => {
                     </h3>
                   </div>
                   <div className="view-nutrients">
-                    {language === 'en' ? 'View Nutrients \u2192' : '\u2190 عرض الحقائق الغذائية'}
+                    {language === 'en' ? 'View Details \u2192' : '\u2190 عرض التفاصيل'}
                   </div>
                 </Link>
               ))}
