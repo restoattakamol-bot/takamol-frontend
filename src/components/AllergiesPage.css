@@ -1,0 +1,86 @@
+.allergies-page-container {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.allergies-content {
+  background-color: #f8f9fa;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.allergies-grid-large {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 40px;
+  justify-items: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.allergen-item-large {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.allergen-icon-large {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.allergen-icon-large:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.allergen-svg-large {
+  width: 40px;
+  height: 40px;
+}
+
+.allergen-tooltip-large {
+  position: absolute;
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.allergen-tooltip-large::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+.allergen-icon-large:hover .allergen-tooltip-large {
+  opacity: 1;
+  visibility: visible;
+  top: -50px;
+}

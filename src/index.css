@@ -1,0 +1,366 @@
+/* Root Variables */
+:root {
+  --primary-color: #3f6f5d;
+  --bg-color: #f8f9fa;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-muted: #6c757d;
+  --border-color: #e9ecef;
+  --accent-color: #3f6f5d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  background-image: url('/yellow-pattern.png');
+  background-repeat: repeat;
+  background-size: 400px;
+  /* Adjust size as needed for the pattern */
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 1rem;
+  background-color: #ffffff;
+  background-image: repeating-linear-gradient(45deg,
+      rgba(255, 255, 255, 0.15),
+      rgba(255, 255, 255, 0.15) 3px,
+      transparent 3px,
+      transparent 20px);
+  padding: 0.2rem 0 0.5rem 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  color: #030986;
+  font-size: 2.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.main-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  max-height: 140px;
+  margin-bottom: 1rem;
+}
+
+/* Search Section */
+.search-container {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  border: 1.1px solid #030986;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-input:focus {
+  border-color: #030986;
+  box-shadow: 0 0 0 3px rgba(3, 9, 134, 0.2);
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* Category Section */
+.category-section {
+  margin-bottom: 3rem;
+}
+
+.category-title {
+  font-size: 1.8rem;
+  color: #030986;
+  background-color: #ffe20a;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+/* Grid Layout for items */
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Card Style */
+.item-card {
+  background-color: #030986;
+  border: 1px solid #030986;
+  border-radius: 8px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 120px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+  border-color: #ffffff;
+}
+
+.item-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.view-nutrients {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  align-self: flex-start;
+}
+
+/* Nutrients Page Specific */
+.nutrients-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  background-size: 200px;
+  background-repeat: no-repeat;
+  background-position: top right;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin-top: 2rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: #030986;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.nutrients-placeholder {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: var(--bg-color);
+  border: 2px dashed var(--border-color);
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.nutrients-placeholder h3 {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+/* Loading and Error states */
+.loading,
+.error {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #e74c3c;
+}
+
+/* Loader Styles */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  text-align: center;
+  min-height: 400px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(3, 9, 134, 0.2);
+  border-top-color: #030986;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 2rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-text {
+  color: #030986;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.7;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.7;
+  }
+}
+
+.loader-subtext {
+  color: var(--text-muted);
+  font-size: 1rem;
+  max-width: 400px;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.combined-logos {
+  width: 100%;
+  max-width: 700px;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+  margin-top: -160px;
+  margin-bottom: -160px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  header {
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .combined-logos {
+    margin-top: -80px;
+    margin-bottom: -80px;
+  }
+
+  .language-toggle {
+    top: 10px !important;
+    right: 10px !important;
+    padding: 4px 8px !important;
+    font-size: 0.9rem;
+  }
+
+  .rtl-layout .language-toggle {
+    right: auto !important;
+    left: 10px !important;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-actions .search-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .action-button {
+    font-size: 0.9rem;
+    padding: 0 15px !important;
+  }
+
+  .category-title {
+    font-size: 1.4rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .nutrients-container {
+    padding: 1.5rem 1rem;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .items-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .item-card {
+    padding: 1.2rem;
+  }
+}
+
+/* RTL Support */
+.rtl-layout {
+  direction: rtl;
+}
+
+.rtl-layout .search-input {
+  text-align: right;
+}
+
+.rtl-layout .language-toggle {
+  right: auto !important;
+  left: 20px !important;
+}
+
+.rtl-layout .view-nutrients {
+  align-self: flex-end;
+}
